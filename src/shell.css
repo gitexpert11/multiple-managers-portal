@@ -1,0 +1,90 @@
+/*
+ * Tab shell. Design tokens come from expense-tracker/src/styles/base.css,
+ * which main.js loads first.
+ */
+.shell {
+  --shell-nav-height: 48px;
+}
+
+.shell__nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+  height: var(--shell-nav-height);
+  padding: 0 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.shell__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.shell__tab:hover { color: var(--text); background: var(--surface-2); }
+.shell__tab:focus-visible { box-shadow: inset var(--ring); }
+.shell__tab[aria-current="page"] { color: var(--primary); border-bottom-color: var(--primary); }
+.shell__tab-icon { display: inline-flex; line-height: 0; }
+
+/* Each app's own sticky top bar sits just below the tab strip. */
+.shell__pane .topbar,
+.shell__pane .todo-topbar,
+.shell__pane .ads-topbar {
+  top: var(--shell-nav-height);
+}
+
+@media (max-width: 720px) {
+  .shell__nav { padding: 0 8px; gap: 0; overflow-x: auto; scrollbar-width: none; }
+  .shell__nav::-webkit-scrollbar { display: none; }
+  /* Text-only tabs that never wrap; the strip scrolls sideways if three labels do not fit. */
+  .shell__tab { flex: 0 0 auto; justify-content: center; padding: 0 10px; font-size: 0.85rem; white-space: nowrap; }
+  .shell__tab-icon { display: none; }
+}
+
+/* ---------- theme switcher (right of the tab strip) ---------- */
+.shell__theme {
+  display: inline-grid;
+  grid-auto-flow: column;
+  align-self: center;
+  margin-left: auto;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-2);
+}
+.shell__theme-input { position: absolute; opacity: 0; width: 0; height: 0; }
+.shell__theme-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.shell__theme-option:hover { color: var(--text); }
+.shell__theme-input:checked + .shell__theme-option { background: var(--surface); color: var(--primary); box-shadow: var(--shadow-sm); }
+.shell__theme-input:focus-visible + .shell__theme-option { box-shadow: var(--ring); }
+.shell__theme-icon { display: inline-flex; line-height: 0; }
+
+@media (max-width: 640px) {
+  /* Icon-only on small screens. */
+  .shell__theme { margin-left: 8px; flex-shrink: 0; }
+  .shell__theme-label { display: none; }
+  .shell__theme-option { padding: 6px 9px; }
+}
