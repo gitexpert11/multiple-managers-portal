@@ -1,5 +1,5 @@
 {
-  "name": "expense-tracker-next-gen",
+  "name": "multiple-managers-portal",
   "version": "3.0.0",
   "private": true,
   "description": "Three-tab client-side workspace: Expense Tracker + Todo Manager + Ads Campaign Management (vanilla JS, HTML5, CSS, localStorage)",
