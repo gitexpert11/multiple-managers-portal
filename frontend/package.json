@@ -1,0 +1,52 @@
+{
+  "name": "multiple-managers-portal-frontend",
+  "version": "4.0.0",
+  "private": true,
+  "description": "Three-tab workspace: Expense Tracker + Todo Manager + Ads Campaign Management (React + TypeScript)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:expense": "vitest run src/apps/expense-tracker",
+    "test:todo": "vitest run src/apps/todo-manager",
+    "test:ads": "vitest run src/apps/ads-campaign-manager",
+    "test:shell": "vitest run src/shell src/shared",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "chart.js": "^4.4.9",
+    "fflate": "^0.8.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.4.1",
+    "@vitest/coverage-v8": "^3.1.0",
+    "eslint": "^10.12.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "globals": "^17.13.0",
+    "jsdom": "^26.1.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.71.2",
+    "vite": "^6.3.5",
+    "vitest": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

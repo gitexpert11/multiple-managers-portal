@@ -1,0 +1,21 @@
+services:
+  backend:
+    build: ./backend
+    environment:
+      ADS_DATABASE_URL: sqlite:////data/ads.db
+      # The frontend container proxies same-origin, so CORS only matters for direct access.
+      ADS_CORS_ORIGINS: http://localhost:8080,http://localhost:5173
+    volumes:
+      - ads-data:/data
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+
+volumes:
+  ads-data:

@@ -1,8 +1,22 @@
+# Node
 node_modules/
-dist/
-coverage/
-.vite/
-*.log
-.DS_Store
+frontend/dist/
+frontend/coverage/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+backend/.venv/
+backend/.pytest_cache/
+backend/htmlcov/
+backend/.coverage
+backend/*.db
+backend/data/
+
+# Env / editor
 .env
-.env.*
+.env.local
+.DS_Store
+.vscode/
+.idea/
